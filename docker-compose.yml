@@ -1,0 +1,53 @@
+version: "3.3"
+
+services:
+  node-master:
+    # Mount slaves before master
+    # depends_on:
+    #   - node-slave-1
+    #   - node-slave-2
+    image: node-master:latest
+    container_name: node-master
+    hostname: node-master
+    tty: true
+    ports:
+      - "8088:8088"
+      - "50070:50070"
+      - "50030:50030"
+      - "8080:8080"
+      - "8042:8042"
+      - "8888:8888"
+    networks:
+      cluster-network:
+        aliases: 
+          - node-master
+
+  # node-slave-1:
+  #   image: node-slave:latest
+  #   container_name: node-slave-1
+  #   hostname: node-slave-1
+  #   tty: true
+  #   ports:
+  #     - "7042:8042"
+  #   networks:
+  #     cluster-network:
+  #       aliases: 
+  #         - node-slave-1
+
+  # node-slave-2:
+  #   image: node-slave:latest
+  #   container_name: node-slave-2
+  #   hostname: node-slave-2
+  #   tty: true
+  #   ports:
+  #     - "9042:8042"
+  #   networks:
+  #     cluster-network:
+  #       aliases: 
+  #         - node-slave-2
+
+networks:
+  cluster-network:
+    driver: bridge
+    ipam:
+      driver: default
