@@ -41,3 +41,16 @@ Por default se conecta a `root`. La contraseña es `1111`.
 ```bash
 sudo sh scripts/connect-master.sh
 ```
+
+## SLURM
+
+### Correr el trabajo de prueba
+
+Se puede editar este trabajo de prueba en `/node-master/test-job`.
+
+```bash
+salloc -N 2 bash
+sbcast /test-job/job.py /tmp/job.py
+srun python3 /tmp/job.py
+srun rm /tmp/job.py
+```

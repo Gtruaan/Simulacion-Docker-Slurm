@@ -31,6 +31,10 @@ COPY /conf/cgroup.conf /etc/slurm/
 # Permissions
 RUN chmod -R 777 /var/spool 
 
+# Test Job
+RUN mkdir /test-job
+COPY /test-job /test-job
+
 # Entrypoint script
 COPY /scripts/bootstrap.sh /
 ENTRYPOINT ["bin/bash", "bootstrap.sh"]
