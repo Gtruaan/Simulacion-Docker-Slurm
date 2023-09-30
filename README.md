@@ -1,8 +1,13 @@
 # Cosas choras
 
+* [Generador del archivo `slurm.conf`](https://slurm.schedmd.com/configurator.html)
+* [Quickstart SLURM](https://slurm.schedmd.com/quickstart_admin.html)
+
 ## Docker compose
 
 ### Script para levantar los contenedores
+
+**Nota**: Este script demora mucho en ejecutarse la primera vez.
 
 ```bash
 sudo sh scripts/rebuild.sh

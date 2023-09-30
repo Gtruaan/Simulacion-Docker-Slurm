@@ -22,29 +22,29 @@ services:
         aliases: 
           - node-master
 
-  # node-slave-1:
-  #   image: node-slave:latest
-  #   container_name: node-slave-1
-  #   hostname: node-slave-1
-  #   tty: true
-  #   ports:
-  #     - "7042:8042"
-  #   networks:
-  #     cluster-network:
-  #       aliases: 
-  #         - node-slave-1
+  node-slave-1:
+    image: node-slave:latest
+    container_name: node-slave-1
+    hostname: node-slave-1
+    tty: true
+    ports:
+      - "7042:8042"
+    networks:
+      cluster-network:
+        aliases: 
+          - node-slave-1
 
-  # node-slave-2:
-  #   image: node-slave:latest
-  #   container_name: node-slave-2
-  #   hostname: node-slave-2
-  #   tty: true
-  #   ports:
-  #     - "9042:8042"
-  #   networks:
-  #     cluster-network:
-  #       aliases: 
-  #         - node-slave-2
+  node-slave-2:
+    image: node-slave:latest
+    container_name: node-slave-2
+    hostname: node-slave-2
+    tty: true
+    ports:
+      - "9042:8042"
+    networks:
+      cluster-network:
+        aliases: 
+          - node-slave-2
 
 networks:
   cluster-network:
